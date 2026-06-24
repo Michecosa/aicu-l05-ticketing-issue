@@ -8,43 +8,45 @@ Serve creare ticket dal supporto.
 
 ## Fatti (Facts)
 
-- [compila con fatti letti nella consegna o nei materiali]
-- [non inserire ipotesi come fatti]
+- Siamo in un applicazione SPA in React con JavaScript dedicata alla gestione di ticket
+- L'applicazione contiene ticket e ne consente la creazione da parte di utenti generici
+- NON hai ancora accesso all'applicazione: siamo in una fase precedente di analisi
 
 ## Assunzioni (Assumptions)
 
-- [compila con ipotesi operative dichiarate]
-- [se non sei sicuro, sposta in Domande aperte]
+- Un ticket creato dal supporto sarà contrassegnato da un'etichetta (come il ruolo dell'autore, ossia "Supporto") per distinguerlo da quello di un utente generico
+- I ticket creati dal supporto avranno una struttura analoga a quelli per gli utenti generici
 
 ## Domande Aperte (Questions)
 
-- [domanda aperta 1]
-- [domanda aperta 2, se serve]
+- Un utente riconosciuto col ruolo di "Suppporto" avrà una sezione riservata per la creazione di ticket?
+- Il campo "Autore" del ticket viene autocompilato dal sistema con il ruolo o l'operatore deve poterlo selezionare manualmente?
 
 ## Decisione (Decision)
 
 Per questo slice, "creare ticket" significa:
 
 ```txt
-[scrivi una decisione minima e verificabile]
+Permettere a un utente con ruolo Supporto di compilare e inviare il form di creazione ticket, salvandolo nel sistema con l'attributo del ruolo tracciato correttamente.
 ```
 
 ## Fuori Scope / Non-Obiettivi (Non-Goals)
 
-- [cosa non facciamo ora]
-- [cosa non chiediamo all'AI]
-- [cosa rimandiamo a una lezione successiva]
+- allegati
+- menzioni
 
 ## Criteri Di Accettazione (Acceptance Criteria)
 
-1. [criterio osservabile 1]
-2. [criterio osservabile 2]
-3. [criterio osservabile 3, solo se serve]
+1. Un utente identificato come "Supporto" può accedere al form di creazione, inserire i dati obbligatori (titolo e descrizione) ed effettuare l'invio
+2. Il sistema convalida che i campi di testo non siano vuoti (nemmeno di soli spazi vuoti tramite trim)
+3. Al salvataggio del ticket, i dati vengono memorizzati associando il ruolo "Supporto" all'autore, e l'interfaccia mostra un feedback di avvenuta creazione
 
 ## Piano Di Verifica Manuale (Manual Test Plan)
 
-- [verifica manuale 1: azione + risultato atteso]
-- [verifica manuale 2: azione + risultato atteso]
+- Accedi come utente Supporto, compila i campi del ticket con testo valido e premi invio. 
+    - Risultato atteso: Il ticket viene creato, l'interfaccia mostra il successo e il ticket salvato presenta il flag/ruolo "Supporto"
+- Accedi come utente Supporto, inserisci solo spazi vuoti nei campi obbligatori e premi invio. 
+    - Risultato atteso: Il form blocca l'invio, mostra un errore di validazione e non crea nessun ticket vuoto nel sistema
 
 ## Note Per L06
 
