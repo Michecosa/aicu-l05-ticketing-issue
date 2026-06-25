@@ -36,7 +36,10 @@ Permettere a un utente con ruolo Supporto di compilare e inviare il form di crea
 
 - allegati
 - menzioni
-- gestione dell'accesso al form da parte di utenti con ruolo diverso da Supporto (autorizzazione/redirect)
+- auth
+- notifiche
+- owner avanzato
+- dashboard
 
 ## Criteri Di Accettazione (Acceptance Criteria)
 
