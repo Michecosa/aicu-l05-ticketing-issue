@@ -20,8 +20,7 @@ Serve creare ticket dal supporto.
 
 ## Domande Aperte (Questions)
 
-- Un utente riconosciuto col ruolo di "Suppporto" avrà una sezione riservata per la creazione di ticket?
-- Il campo "Autore" del ticket viene autocompilato dal sistema con il ruolo o l'operatore deve poterlo selezionare manualmente?
+- Il campo "Autore" del ticket viene autocompilato dal sistema con il ruolo o l'utente deve poterlo selezionare manualmente?
 - Che forma ha il feedback di successo?
 - Esistono limiti di lunghezza minima o massima per i campi titolo e descrizione?
 
