@@ -43,18 +43,31 @@ Permettere a un utente con ruolo Supporto di compilare e inviare il form di crea
 
 ## Criteri Di Accettazione (Acceptance Criteria)
 
-1. Un utente identificato come "Supporto" può accedere al form di creazione, inserire i dati obbligatori (titolo e descrizione) ed effettuare l'invio
-2. Il sistema convalida che i campi di testo non siano vuoti (nemmeno di soli spazi vuoti tramite trim)
-3. Al salvataggio del ticket, il client invia la richiesta includendo il ruolo 'Supporto'. L'interfaccia mostra un feedback di successo e il nuovo ticket appare nella lista con l'etichetta autore 'Supporto'
+1. Compilazione e Validazione dei Campi Obbligatori: Il sistema deve mostrare un form con i campi "Titolo" e "Descrizione". Entrambi i campi devono essere obbligatori. Se l'utente tenta di inviare il form lasciando uno o entrambi i campi vuoti, l'invio deve essere bloccato e deve comparire un messaggio di errore di validazione specifico per il campo mancante.
+
+2. Tracciamento del Ruolo (Supporto): Al momento del salvataggio del ticket, il sistema deve associare automaticamente e correttamente l'attributo/etichetta "Supporto" al ticket, senza che l'utente debba selezionarlo manualmente.
+
+3. Invia e Feedback di Successo: Una volta compilati correttamente i campi e inviato il form, i dati devono essere salvati nel sistema e l'applicazione deve mostrare un feedback visivo di avvenuto salvataggio (in linea con le assunzioni correnti, in attesa di definire il design esatto nelle domande aperte).
 
 ## Piano Di Verifica Manuale (Manual Test Plan)
 
-- Accedi come utente Supporto, compila i campi del ticket con testo valido e premi invio. 
-    - Risultato atteso: Il ticket viene creato, l'interfaccia mostra il successo e il ticket salvato presenta il flag/ruolo "Supporto"
-- Accedi come utente Supporto, inserisci solo spazi vuoti nei campi obbligatori e premi invio. 
-    - Risultato atteso: Il form blocca l'invio, mostra un messaggio di errore testuale chiaramente visibile in corrispondenza dei campi non validi e non crea nessun ticket vuoto nel sistema
-- Compila solo il titolo (lascia la descrizione con spazi vuoti)
-    - Risultato atteso: Il form blocca l'invio e mostra un messaggio di errore testuale chiaramente visibile in corrispondenza del campo non valido
+- Scenario 1: Tentativo di invio form vuoto (Validazione)
+
+    - Azione: Navigare alla pagina di creazione ticket, lasciare i campi "Titolo" e "Descrizione" vuoti e cliccare sul pulsante di invio.
+
+    - Risultato atteso: Il form non viene inviato. Vengono mostrati i messaggi di errore di validazione che indicano che i campi sono obbligatori.
+
+- Scenario 2: Tentativo di invio con solo un campo compilato
+
+    - Azione: Inserire un testo solo nel campo "Titolo", lasciare vuoto il campo "Descrizione" e cliccare su invio.
+
+    - Risultato atteso: Il form non viene inviato. Viene mostrato l'errore di validazione specifico per il campo "Descrizione".
+
+- Scenario 3: Creazione ticket con successo e verifica attributi
+
+    - Azione: Compilare sia il campo "Titolo" che il campo "Descrizione" con dati validi e cliccare sul pulsante di invio.
+
+    - Risultato atteso: Il form viene inviato con successo, viene mostrato un feedback di conferma e il ticket viene salvato nel sistema includendo correttamente l'attributo/etichetta del ruolo "Supporto".
 
 ## Note Per L06
 
