@@ -20,9 +20,9 @@ Serve creare ticket dal supporto.
 
 ## Domande Aperte (Questions)
 
-- Il campo "Autore" del ticket viene autocompilato dal sistema con il ruolo o l'utente deve poterlo selezionare manualmente?
 - Che forma ha il feedback di successo?
 - Esistono limiti di lunghezza minima o massima per i campi titolo e descrizione?
+- Come deve comportarsi l'interfaccia utente se la richiesta di salvataggio fallisce lato server (es. errore di rete o errore 500)?
 
 ## Decisione (Decision)
 
@@ -40,6 +40,7 @@ Permettere a un utente con ruolo Supporto di compilare e inviare il form di crea
 - notifiche
 - owner avanzato
 - dashboard
+- integrazione reale con le API di backend (il salvataggio può essere simulato/mockato in questa fase)
 
 ## Criteri Di Accettazione (Acceptance Criteria)
 
@@ -47,7 +48,7 @@ Permettere a un utente con ruolo Supporto di compilare e inviare il form di crea
 
 2. Tracciamento del Ruolo (Supporto): Al momento del salvataggio del ticket, il sistema deve associare automaticamente e correttamente l'attributo/etichetta "Supporto" al ticket, senza che l'utente debba selezionarlo manualmente.
 
-3. Invia e Feedback di Successo: Una volta compilati correttamente i campi e inviato il form, i dati devono essere salvati nel sistema e l'applicazione deve mostrare un feedback visivo di avvenuto salvataggio (in linea con le assunzioni correnti, in attesa di definire il design esatto nelle domande aperte).
+3. Una volta inviato il form con dati validi, l'applicazione deve mostrare un feedback visivo di successo (es. un messaggio temporaneo o un banner) e resettare i campi del form / reindirizzare l'utente". Sposta il dettaglio del payload/salvataggio nelle note tecniche.
 
 ## Piano Di Verifica Manuale (Manual Test Plan)
 
@@ -67,7 +68,7 @@ Permettere a un utente con ruolo Supporto di compilare e inviare il form di crea
 
     - Azione: Compilare sia il campo "Titolo" che il campo "Descrizione" con dati validi e cliccare sul pulsante di invio.
 
-    - Risultato atteso: Il form viene inviato con successo, viene mostrato un feedback di conferma e il ticket viene salvato nel sistema includendo correttamente l'attributo/etichetta del ruolo "Supporto".
+    - Risultato atteso: Il form viene inviato con successo, viene mostrato un feedback di conferma e il ticket viene salvato nel sistema. Verificare tramite i DevTools del browser che la richiesta di creazione inviata contenga il flag/attributo corretto
 
 ## Note Per L06
 
